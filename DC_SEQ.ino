@@ -40,7 +40,9 @@ void loop() {
   while(digitalRead(lim)==HIGH){
     v=dcVel(10000);
     d=8.0*(pulses/374.0);
-    Serial.println(String(millis())+" "+String(v)+" "+String(d));
+    Serial.print(String(millis())+" ");
+    Serial.print(String(v)+" ");
+    Serial.println(String(d));
     e_n=20+v;
     v_n=v_n+int(kp*e_n+kd*(e_n-e_o));
     if(v_n<0){
@@ -63,7 +65,9 @@ void loop() {
   while((pulses-initial_Pulses<0.4*t5MM)){
     v=dcVel(10000);
     d=8.0 * (pulses/374.0);
-    Serial.println(String(millis())+" "+String(v)+" "+String(d));
+    Serial.print(String(millis())+" ");
+    Serial.print(String(v)+" ");
+    Serial.println(String(d));
     e_n=10-v;                                                           //5mm/s gave me trouble so I bumped up to 10 mm/s
     v_n=v_n+int(0.1*e_n+kd*(e_n-e_o));
     if(v_n<0){
@@ -83,7 +87,9 @@ void loop() {
   while(digitalRead(lim)==HIGH){
     v=dcVel(10000);
     d=8.0 * (pulses/374.0);
-    Serial.println(String(millis())+" "+String(v)+" "+String(d));
+    Serial.print(String(millis())+" ");
+    Serial.print(String(v)+" ");
+    Serial.println(String(d));
   }
   delay(1000);
   Serial.println("=========END SLOW-LIMIT PULL==========");             //signal sequence end
@@ -97,7 +103,9 @@ void loop() {
   while((pulses-initial_Pulses<t30MM)){
     v=dcVel(10000);
     d=8.0 * (pulses/374.0);
-    Serial.println(String(millis())+" "+String(v)+" "+String(d));
+    Serial.print(String(millis())+" ");
+    Serial.print(String(v)+" ");
+    Serial.println(String(d));
     e_n=10-v;                                                           //5mm/s gave me trouble so I bumped up to 10 mm/s
     v_n=v_n+int(0.3*e_n+kd*(e_n-e_o));
     if(v_n<0){
